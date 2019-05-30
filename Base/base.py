@@ -96,5 +96,4 @@ class Base:
         :return: toast全部信息
         """
         tip_ele = (By.ID, "//*[contains(@text,{})]".format(toast))
-        tip_msg = self.get_element(tip_ele, timeout=5, poll_frequency=0.5).text
-        return tip_msg
+        return self.get_element(tip_ele, timeout=5, poll_frequency=0.5).text
