@@ -14,7 +14,6 @@ login_005:
   account: "cary1029"
   passwd: "123ab*"
   expect_data: "我的优惠券"
-
 login_006:
   account: " cary1029"
   passwd: "123ab*"
@@ -23,6 +22,7 @@ login_007:
   account: "cary1029 "
   passwd: "123ab*"
   expect_data: "我的优惠券"
+
 login_009:
   account: "18800001111"
   passwd: "159357li"

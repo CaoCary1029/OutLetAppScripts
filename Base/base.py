@@ -95,5 +95,5 @@ class Base:
         :param toast: 关键字
         :return: toast全部信息
         """
-        tip_ele = (By.XPATH, "//*[contains(@text,{})]".format(toast))
+        tip_ele = (By.XPATH, "//*[contains(@text,'{}')]".format(toast))
         return self.get_element(tip_ele, timeout=5, poll_frequency=0.5).text

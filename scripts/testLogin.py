@@ -89,6 +89,7 @@ class TestLogin:
         try:
             """登录页"""
             tip_msg = self.page.login_page().get_toast(toast)
+            print("tip_msg=", tip_msg, "expect_data", expect_data)
             # try:
             #     assert expect_data == tip_msg
             # except AssertionError:
@@ -110,27 +111,28 @@ class TestLogin:
                 assert tip_msg == expect_data
                 self.page.login_page().close_login_page()
             except AssertionError:
+                print("有toast断言错误截图---1-")
                 self.page.login_page().screen_page(case_num)
                 self.page.login_page().close_login_page()
                 assert False
             except TimeoutException:
                 """在个人中心页"""
+                print("有toast进入个人中心截图---2--")
                 self.page.login_page().screen_page(case_num)
                 self.page.my_page().click_my_setting_btn()
                 self.page.setting_page().logout()
                 assert False
         except TimeoutException:
+            print("没有toast截图---3-")
             self.page.setting_page().screen_page(case_num)
             try:
                 """登录页"""
                 self.page.login_page().get_login_btn()
                 # 关闭登录页
                 self.page.login_page().close_login_page()
-
             except TimeoutException:
                 """个人中心页"""
-                self.page.login_page().screen_page(case_num)
                 # 退出操作
                 self.page.my_page().click_my_setting_btn()
                 self.page.setting_page().logout()
-                assert False
+            assert False
